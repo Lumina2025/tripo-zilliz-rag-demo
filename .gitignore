@@ -1,0 +1,22 @@
+.env
+.DS_Store
+__pycache__/
+*.pyc
+
+# Runtime output
+cache/
+logs/
+
+# Local/full datasets. Do not commit large private asset data.
+milvus_dataset.csv
+milvus_render_images/
+milvus_input_images/
+
+# Feishu/blog drafting and rollback artifacts
+blog_draft.md
+rollback_*.xml
+
+# Local archives and scratch files
+*.zip
+.memsearch/
+logo-image/

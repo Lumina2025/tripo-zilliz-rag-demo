@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tripo Asset Search</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <div class="shell">
+      <header class="nav">
+        <div class="brand-lockup">
+          <img class="brand-logo tripo-wordmark" src="/static/assets/tripo-wordmark.jpg" alt="Tripo" />
+          <span class="brand-x">x</span>
+          <img class="brand-logo zilliz-logo" src="/static/assets/zilliz-logo-white-cropped.png" alt="Zilliz" />
+          <span class="brand-product">RAG</span>
+        </div>
+        <nav>
+          <a href="#search">Search</a>
+          <a href="#results">Assets</a>
+          <a href="/api/health" target="_blank">Health</a>
+        </nav>
+      </header>
+
+      <main>
+        <section class="hero" id="search">
+          <div class="hero-copy">
+            <div class="hero-logos" aria-label="Tripo x Zilliz">
+              <img class="hero-tripo-wordmark" src="/static/assets/tripo-wordmark.jpg" alt="Tripo" />
+              <span>x</span>
+              <img src="/static/assets/zilliz-logo-white-cropped.png" alt="Zilliz" />
+            </div>
+            <p class="eyebrow">Multimodal 3D Asset Retrieval</p>
+            <h1>Tripo x Zilliz RAG</h1>
+            <p class="lede">
+              Find the right Tripo-generated 3D asset with Zilliz by describing it, adding a reference image, or combining both.
+            </p>
+          </div>
+
+          <form class="search-panel" id="searchForm">
+            <div class="query-row">
+              <label class="query-box">
+                <span>Prompt</span>
+                <textarea
+                  name="text"
+                  rows="4"
+                  placeholder="fantasy sword with blue gemstone, stylized game asset..."
+                ></textarea>
+              </label>
+              <label class="dropzone" id="dropzone">
+                <input type="file" name="image" accept="image/*" />
+                <span class="drop-icon">3D</span>
+                <strong>Reference Image</strong>
+                <em id="fileName">Drop or choose an image</em>
+              </label>
+            </div>
+
+            <div class="filters">
+              <label>
+                <span>Category</span>
+                <select name="category">
+                  <option value="">All</option>
+                  <option>Weapon</option>
+                  <option>Character</option>
+                  <option>Props</option>
+                  <option>Creatures & Animals</option>
+                  <option>Vehicle</option>
+                  <option>Architecture</option>
+                  <option>Machine</option>
+                  <option>Furniture</option>
+                  <option>Nature & Environment</option>
+                </select>
+              </label>
+              <label>
+                <span>Style</span>
+                <select name="style">
+                  <option value="">All</option>
+                  <option>realistic</option>
+                  <option>fantasy</option>
+                  <option>stylized</option>
+                  <option>cartoon</option>
+                  <option>sci-fi</option>
+                  <option>cyberpunk</option>
+                  <option>voxel</option>
+                </select>
+              </label>
+              <label>
+                <span>Use Case</span>
+                <select name="use_case">
+                  <option value="">All</option>
+                  <option>game asset</option>
+                  <option>rendering</option>
+                  <option>3D printing</option>
+                  <option>concept art</option>
+                  <option>animation</option>
+                </select>
+              </label>
+              <label>
+                <span>Top K</span>
+                <input name="top_k" type="number" value="12" min="1" max="50" />
+              </label>
+              <button type="submit" id="submitBtn">Search Assets</button>
+            </div>
+          </form>
+        </section>
+
+        <section class="status-band">
+          <div>
+            <span id="statusDot"></span>
+            <strong id="statusText">Ready</strong>
+          </div>
+        </section>
+
+        <section class="results" id="results">
+          <div class="section-head">
+            <p class="eyebrow">Retrieved Render Images</p>
+            <h2>Asset Matches</h2>
+          </div>
+          <div class="grid" id="resultsGrid"></div>
+        </section>
+      </main>
+    </div>
+
+    <template id="cardTemplate">
+      <article class="asset-card">
+        <a class="thumb-link" target="_blank">
+          <img class="thumb" alt="" />
+          <span class="rank"></span>
+        </a>
+        <div class="card-body">
+          <div class="score"></div>
+          <h3></h3>
+          <p></p>
+          <div class="chips"></div>
+          <div class="paths"></div>
+        </div>
+      </article>
+    </template>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>
