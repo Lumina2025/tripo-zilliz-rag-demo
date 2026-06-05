@@ -4,9 +4,10 @@ A demo app for searching Tripo-generated 3D render assets with text, reference i
 
 ## Demo
 
-<video src="./media/demo.mp4" controls width="100%"></video>
+![Tripo x Zilliz multimodal asset search demo](./media/demo.gif)
 
-If the video does not render in your browser, open it directly: [media/demo.mp4](./media/demo.mp4).
+If the GIF does not render in your browser, open it directly: [media/demo.gif](./media/demo.gif).
+The original MP4 is also available at [media/demo.mp4](./media/demo.mp4).
 
 The UI is included in `static/` and is served by FastAPI. No separate frontend build step is required.
 
