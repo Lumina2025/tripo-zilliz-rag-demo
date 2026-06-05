@@ -2,6 +2,12 @@
 
 A demo app for searching Tripo-generated 3D render assets with text, reference images, metadata filters, and Zilliz Cloud vector search.
 
+## Demo
+
+<video src="./media/demo.mp4" controls width="100%"></video>
+
+If the video does not render in your browser, open it directly: [media/demo.mp4](./media/demo.mp4).
+
 The UI is included in `static/` and is served by FastAPI. No separate frontend build step is required.
 
 ## What Is Included
